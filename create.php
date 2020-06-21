@@ -17,6 +17,7 @@ if (
 // var_dump($_POST);
 // exit();
 
+
 // 受け取ったデータを変数に入れる
 $datetime = $_POST['datetime'];
 $weight = $_POST['weight'];

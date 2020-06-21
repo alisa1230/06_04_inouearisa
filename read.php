@@ -4,6 +4,7 @@
 $dbn = 'mysql:dbname=gsacf_d06_04;charset=utf8;port=3306;host=localhost';
 $user = 'root';
 $pwd = '';
+$test = '';
 
 try {
   // ここでDB接続処理を実行する
