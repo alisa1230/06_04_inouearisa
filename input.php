@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DB連携型todoリスト（入力画面）</title>
+  <title>体重管理</title>
 </head>
 
 <body>
+  <script src="camera.js"></script>
   <form action="create.php" method="POST">
     <fieldset>
-      <legend>DB連携型todoリスト（入力画面）</legend>
+      <legend>体重入力画面</legend>
       <a href="read.php">一覧画面</a>
 
       <div>
@@ -25,11 +26,19 @@
       <div>
         メモ: <input type="text" name="memo">
       </div>
-      <div>
-        <button>submit</button>
-      </div>
+
+      <video id="vid" width="300" height="200"></video>
+      <canvas id="canv" width="300" height="200"></canvas>
+      <form>
+        <div>
+          <button>submit</button>
+        </div>
+      </form>
+      <button type="button" id="shutter">シャッター</button>
+      <button id="download">download</button>
     </fieldset>
-  </form>
+
+
 
 </body>
 
