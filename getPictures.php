@@ -15,7 +15,8 @@ function getPictures()
                 if (($type = getPictureType($ext)) == '') {
                     continue;
                 }
-                echo '<a class="image-link" href="' . $path . '" data-lightbox="imgs" ';
+                echo '<a class="image-link" hre
+                f="' . $path . '" data-lightbox="imgs" ';
                 echo 'data-title="' . $name, '">';
                 echo '<img class="image" src="' . $path . '" width="240" alt="' . $file . '">';
                 echo "</a>\n";
