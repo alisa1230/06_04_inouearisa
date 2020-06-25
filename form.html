@@ -2,18 +2,33 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ファイルアップロードのテスト</title>
-
+    <META http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 
 <body>
-    <form name="form1" method="POST" action="view.php" enctype="multipart/form-data">
-        <input type="hidden" name="MAX_FILE_SIZE" value="1000000"></form>
-    画像：<input type="file" name="uploadfile"><br>
-    説明：<input type="text" name="comment"><br><br>
-    <input type="submit" value="ファイルアップロード">
+    <script src="camera.js"></script>
+    <form name="form1" method="post" action="read.php" enctype="multipart/form-data">
+        <div>
+            <p>体型を写真にとってサーバーに送ろう！</p>
+            <p>手順：<br>
+                ①かしゃ → ボタンを押して５秒後にシャッターがおります。<br>②ほぞん → 写真を保存します。<br>③保存した写真を選択します。<br>
+                ④サーバーに送信します</p>
+        </div>
+        <video id="vid" width="300" height="400"></video>
+        <canvas id="canv" width="300" height="400"></canvas>
+        <fieldset>
+            <input type="hidden" name="max_file_size" value="3000000" /input>
+            <!-- <br>
+            コメント：
+            <input type="text" name="comment" /input>
+            <br> -->
+            <br>
+            <button type="button" id="shutter">①かしゃ</button><br>
+            <button type="button" id="download">②ほぞん</button><br>
+            <input type="file" name="uploadfile"><br>
+            <input type="submit" value="④サーバーに送信">
+    </form>
+    </fieldset>
 </body>
 
 </html>

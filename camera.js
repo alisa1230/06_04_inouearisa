@@ -1,6 +1,3 @@
-
-
-
 window.onload = () => {
     const video = document.querySelector("#vid");
     const canvas = document.querySelector("#canv");
@@ -11,7 +8,7 @@ window.onload = () => {
         audio: false,
         video: {
             width: 300,
-            height: 200,
+            height: 400,
             facingMode: "user"   // フロントカメラを利用する
 
         }
@@ -36,11 +33,15 @@ window.onload = () => {
      */
     document.querySelector("#shutter").addEventListener("click", () => {
         const ctx = canvas.getContext("2d");
-        // canvasに画像を貼り付ける
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        setTimeout(() => {
+            // ５秒後にcanvasに画像を貼り付ける
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        }, 5000);
+
     });
     // DLボタンをクリック
     document.querySelector("#download").addEventListener("click", () => {
+        //ダウンロード
         canvasDownload("#canv");
     });
 };
