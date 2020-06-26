@@ -1,6 +1,7 @@
  <?php
   // var_dump($_POST);
   // exit();
+  //サバーに画像ファイルを保存する
   $file_dir  = '/Applications/XAMPP/xamppfiles/htdocs/06_04_inouearisa/06_04_inouearisa/image/';
   $file_path = $file_dir . $_FILES["uploadfile"]["name"];
   if (move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $file_path)) {
@@ -20,7 +21,6 @@
   $images = glob('image/*');
   foreach ($images as $image) {
     $output .= "<tr>";
-    $output .= "<td>{$image}</td>";
     $output .= "<td>{$image}</td>";
     $output .= "</tr>";
   }
@@ -67,16 +67,17 @@
     // var_dump($result);
     // exit();
 
-
-    // var_dump($result[0]["date"]);
-    // exit();
-    // <tr><td>deadline</td><td>todo</td><tr>の形になるようにforeachで順番に$outputへデータを追加
-    // `.=`は後ろに文字列を追加する，の意味
+    //DBから取得した値をそれぞれの変数煮詰めchart.jsで取得する
     foreach ($result as $record) {
       $day .= "{$record["date"]}','";
       $weights .= "{$record["weight"]}','";
       $bodyfats .= "{$record["bodyfat"]}','";
-      $memos .= "{$record["memo"]}','";
+    }
+    foreach ($result as $record) {
+      $memos .= "<tr>";
+      // $memos .= "<td width ="240">メモ：{$record["memo"]} </td>";
+      $memos .= "<td >メモ：{$record["memo"]} </td>";
+      $memos .= "</tr>";
     }
   }
   ?>
@@ -160,14 +161,16 @@
      </script>
    </fieldset>
    <?php
+    //imageフォルダに入った画像を一覧として取得するメソッド呼び出す。
     require('getPictures.php');
     ?>
    <section id="gallery" class="gallery">
      <h1>アップロード画像一覧</h1>
-     <?php getPictures(); ?>
+     <?php getPictures(); ?><br>
+     <?= $memos ?>
 
    </section>
-   <a href="input.php">体重入力画面へ</a>
+   <a href=" input.php">体重入力画面へ</a>
  </body>
 
  </html>

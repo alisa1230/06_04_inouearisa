@@ -4,8 +4,6 @@ function getPictures()
 {
     global $img_dir;
     if ($handle = opendir($img_dir)) {
-        echo '<div class="images">';
-        echo "\n";
         while (($file = readdir($handle)) !== false) {
             $path = $img_dir . $file;
             if (!is_dir($path)) {
@@ -15,18 +13,13 @@ function getPictures()
                 if (($type = getPictureType($ext)) == '') {
                     continue;
                 }
-                echo '<a class="image-link" hre
-                f="' . $path . '" data-lightbox="imgs" ';
-                echo 'data-title="' . $name, '">';
                 echo '<img class="image" src="' . $path . '" width="240" alt="' . $file . '">';
                 echo "</a>\n";
             }
         }
-        echo '</div>';
-        echo "\n";
     }
 }
-
+//写真の拡張子をextに返すメソッド
 function getPictureType($ext)
 {
     if (preg_match('/jpg|jpeg/i', $ext)) {
