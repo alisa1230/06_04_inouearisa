@@ -42,8 +42,6 @@ try {
 // var_dump($_POST);
 // exit();
 
-// データ登録SQL作成
-// `created_at`と`updated_at`には実行時の`sysdate()`関数を用いて実行時の日時を入力する
 
 // SQL準備&実行
 $sql = 'INSERT INTO weightLoss(date, weight,bodyfat,memo)
